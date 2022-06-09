@@ -1,4 +1,4 @@
-name := "appkit-by-example"
+name := "appkit-ergoscript"
 
 version := "0.1"
 

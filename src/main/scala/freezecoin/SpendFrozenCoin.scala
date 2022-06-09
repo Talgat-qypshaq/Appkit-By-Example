@@ -10,7 +10,7 @@ object SpendFrozenCoin {
     // Node configuration values
     val conf: ErgoToolConfig = ErgoToolConfig.load(configFileName)
     val nodeConf: ErgoNodeConfig = conf.getNode
-    val explorerUrl: String = RestApiErgoClient.getDefaultExplorerUrl(NetworkType.TESTNET)
+    val explorerUrl: String = RestApiErgoClient.getDefaultExplorerUrl(NetworkType.MAINNET)
 
     // Fetch parameters from config
     val ownerAddress: Address = Address.create(conf.getParameters.get("ownerAddress"))

@@ -5,18 +5,19 @@ import org.ergoplatform.appkit.config.{ErgoNodeConfig, ErgoToolConfig}
 
 import java.util.Collections
 
-object FreezeCoin {
-
-  def sendTx(configFileName: String): String = {
-
+object FreezeCoin
+{
+  def sendTx(configFileName: String): String =
+  {
     // Node configuration values
     val conf: ErgoToolConfig = ErgoToolConfig.load(configFileName)
     val nodeConf: ErgoNodeConfig = conf.getNode
-    val explorerUrl: String = RestApiErgoClient.getDefaultExplorerUrl(NetworkType.TESTNET)
+    val explorerUrl: String = RestApiErgoClient.getDefaultExplorerUrl(NetworkType.MAINNET)
 
     // Fetch parameters from config
     val newBoxSpendingDelay: Int = conf.getParameters.get("newBoxSpendingDelay").toInt
     val ownerAddress: Address = Address.create(conf.getParameters.get("ownerAddress"))
+
     val addressIndex: Int = conf.getParameters.get("addressIndex").toInt
 
     // Create ErgoClient instance (represents connection to node)
@@ -35,17 +36,19 @@ object FreezeCoin {
 
       // Get input (spending) boxes from node wallet
       val wallet: ErgoWallet = ctx.getWallet
-      val amountToSend: Long = Parameters.OneErg
+      val amountToSend: Long = 0.000001.toLong
+      //val amountToSend: Long = Parameters.OneErg
       val totalToSpend: Long = amountToSend + Parameters.MinFee
+      System.out.println("Min Fee "+Parameters.MinFee);
       val boxes: java.util.Optional[java.util.List[InputBox]] = wallet.getUnspentBoxes(totalToSpend)
       if (!boxes.isPresent)
-        throw new ErgoClientException(s"Not enough coins in the wallet to pay $totalToSpend", null)
+        throw new ErgoClientException(s"Not Enough coins in the wallet to pay $totalToSpend", null)
 
       // Define protection script
       val freezeCoinScript: String = s"""
         { sigmaProp(HEIGHT > freezeDeadline) && ownerPk }
         """.stripMargin
-
+      //System.out.println("owner address: "+ownerAddress.getPublicKey)
       // Compile contract (with parameter substitution)
       val contract: ErgoContract = ctx.compileContract(
         ConstantsBuilder.create()

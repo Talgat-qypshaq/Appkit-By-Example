@@ -1,1 +1,0 @@
-# appkit-by-example

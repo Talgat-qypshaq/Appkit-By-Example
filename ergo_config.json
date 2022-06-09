@@ -1,23 +1,27 @@
 {
-  "node": {
-    "nodeApi": {
-      "apiUrl": "REPLACE WITH NODE URL:PORT",
-      "apiKey": "REPLACE WITH NODE API KEY"
+  "node":
+  {
+    "nodeApi":
+    {
+      "apiUrl": "http://127.0.0.1:9053/",
+      "apiKey": "wealthy"
     },
-    "wallet": {
-      "mnemonic": "REPLACE WITH WALLET MNEMONIC",
-      "password": "",
+    "wallet":
+    {
+      "mnemonic": "upgrade slim mountain find story comic office ride icon hood end flush rent prepare coast",
+      "password": "$Millionaire",
       "mnemonicPassword": ""
     },
-    "networkType": "TESTNET"
+    "networkType": "MAINNET"
   },
-  "parameters": {
+  "parameters":
+  {
     "addressIndex": 0,
-    "newBoxSpendingDelay": "5",
+    "newBoxSpendingDelay": "1",
     "pin": "1234",
-    "ownerAddress": "3WxCQCfjLgfaXRVsB6KSwkFkzY3L6bvAhPS48GCe4twDNBXKGpiL",
-    "freezeAddress": "7nTPtEuDtHYsuSYdbtVUkQKU33FEz1wdCuuwiofjK4AUjX1QoeDcrbAQzkghR9osxMZ975WmvPd",
-    "pinLockAddress": "2HQuR46idDZTywHEPK5q8keir2akMxScgEiv75GzbmB1",
-    "pinLockBoxId": "4e71d830142d3fc8f02cd72a84ca972440d07bcf04356d194515c11032fdbf0b"
+    "ownerAddress": "9fHDDFSmNti2XBwqC7VButcWXn4zpV6G4EAvjg9HxoGta6riDAS",
+    "freezeAddress": "9i4BCp6TroMGTH6AWfEazyLSrQsWbrCtDjvwCbXjV5iWvL5M8bG",
+    "pinLockAddress": "9fHDDFSmNti2XBwqC7VButcWXn4zpV6G4EAvjg9HxoGta6riDAS",
+    "pinLockBoxId": "9fHDDFSmNti2XBwqC7VButcWXn4zpV6G4EAvjg9HxoGta6riDAS"
   }
 }
